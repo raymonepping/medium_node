@@ -1,0 +1,17 @@
+{
+  "id": "custom-hooks",
+  "name": "Custom Hooks",
+  "description": "Custom hooks for handling Couchbase integration.",
+  "version": "1.0.0",
+  "type": "hook",
+  "hooks": {
+    "items.create.before": "dist/index.js",
+    "items.update.before": "dist/index.js",
+    "items.delete.before": "dist/index.js"
+  },
+  "directus": {
+    "extension": {
+      "type": "hook"
+    }
+  }
+}

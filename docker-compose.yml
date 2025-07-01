@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  directus:
+    build: .
+    ports:
+      - "8055:8055"
+    environment:
+      DIRECTUS_DATABASE_CLIENT: pg
+      DIRECTUS_DATABASE_HOST: your_database_host
+      DIRECTUS_DATABASE_PORT: 5432
+      DIRECTUS_DATABASE_DATABASE: your_database_name
+      DIRECTUS_DATABASE_USER: your_database_user
+      DIRECTUS_DATABASE_PASSWORD: your_database_password
+      COUCHBASE_HOST: 127.0.0.1
+      COUCHBASE_USERNAME: repping
+      COUCHBASE_PASSWORD: "@kkerMunt168!"
+      COUCHBASE_BUCKET: demo
+      COUCHBASE_SCOPE: knex
+      COUCHBASE_COLLECTION: examples
+    volumes:
+      - ./extensions:/directus/extensions

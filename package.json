@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "couchbase": "^4.4.0",
+    "directus": "^10.13.1",
+    "dotenv": "^16.4.5",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.1.7",
+    "winston": "^3.13.1"
+  }
+}
