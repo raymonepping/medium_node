@@ -1,6 +1,6 @@
 // config/custom.js
-const { Services } = require('@directus/core');
-const couchbaseAdapter = require('../src/services/couchbase-adapter');
+const { Services } = require("@directus/core");
+const couchbaseAdapter = require("../src/services/couchbase-adapter");
 
 module.exports = async (container) => {
   // Replace Directus DatabaseService adapter with Couchbase adapter

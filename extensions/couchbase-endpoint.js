@@ -1,8 +1,15 @@
-require('dotenv').config(); // Load environment variables from .env file
-const couchbase = require('couchbase');
+require("dotenv").config(); // Load environment variables from .env file
+const couchbase = require("couchbase");
 
 // Destructure environment variables
-const { COUCHBASE_HOST, COUCHBASE_USERNAME, COUCHBASE_PASSWORD, COUCHBASE_BUCKET, COUCHBASE_SCOPE, COUCHBASE_COLLECTION } = process.env;
+const {
+  COUCHBASE_HOST,
+  COUCHBASE_USERNAME,
+  COUCHBASE_PASSWORD,
+  COUCHBASE_BUCKET,
+  COUCHBASE_SCOPE,
+  COUCHBASE_COLLECTION,
+} = process.env;
 
 let clusterPromise = null;
 
@@ -21,7 +28,7 @@ module.exports = (async () => {
   const cluster = await getCluster();
   const bucket = cluster.bucket(COUCHBASE_BUCKET);
   return {
-    client: 'custom-couchbase',
+    client: "custom-couchbase",
     connection: {
       cluster,
       bucket: COUCHBASE_BUCKET,

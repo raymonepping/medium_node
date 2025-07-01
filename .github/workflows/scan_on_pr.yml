@@ -17,8 +17,10 @@ jobs:
     steps:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full history to allow proper diffing
 
-      - name: �� Setup Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -46,12 +48,11 @@ jobs:
       - name: 🔐 Run npm audit
         run: npm audit --audit-level=moderate || true
 
-      - name: �� License check
+      - name: 📄 License check
         run: |
           npx license-checker --summary || echo "⚠️ License summary failed or not installed"
 
       - name: 📸 List changed files
         run: |
           echo "🔄 Changed files in PR:"
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
-
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} || echo "⚠️ No diff available (possibly first commit or shallow clone)"
